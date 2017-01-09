@@ -1,6 +1,6 @@
 'use strict'
 
-const success = (data, options) => {
+const success = (code, data, options) => {
   const opt = typeof options === 'object' ? options : {}
 
   const headers = {
@@ -14,7 +14,7 @@ const success = (data, options) => {
   data = data || {}
 
   return {
-    statusCode: typeof opt.statusCode !== 'undefined' ? opt.statusCode.toString() : '200',
+    statusCode: (code || 200).toString(),
     body: JSON.stringify(data),
     headers: headers
   }

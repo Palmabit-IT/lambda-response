@@ -17,7 +17,7 @@ describe('Lambda response', () => {
   })
 
   it('should get response object', done => {
-    expect(lambdaResponse.success(fakeData)).to.deep.equal({
+    expect(lambdaResponse.success(200, fakeData)).to.deep.equal({
       statusCode: '200',
       body: JSON.stringify(fakeData),
       headers: {
@@ -34,7 +34,7 @@ describe('Lambda response', () => {
   })
 
   it('should get response without cors', done => {
-    expect(lambdaResponse.success(null, {cors: false}).headers).to.deep.equal({
+    expect(lambdaResponse.success(200, null, {cors: false}).headers).to.deep.equal({
       'Content-Type': 'application/json'
     })
     done()
@@ -43,7 +43,7 @@ describe('Lambda response', () => {
   it('should get response with a custom status code', done => {
     const fakeCode = faker.random.number()
 
-    expect(lambdaResponse.success(null, {statusCode: fakeCode}).statusCode).to.equal(fakeCode.toString())
+    expect(lambdaResponse.success(fakeCode, {}).statusCode).to.equal(fakeCode.toString())
     done()
   })
 })

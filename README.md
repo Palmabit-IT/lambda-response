@@ -19,11 +19,10 @@ const data = {
 
 //optional
 const options = {
-  statusCode: 200,  //default 200
-  cors: true        //default true
+  cors: true  //default true
 }
 
-lambdaResponse.success(data, options)
+lambdaResponse.success(200, data, options)
 ```
 
 ### Response
