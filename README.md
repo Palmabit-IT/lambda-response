@@ -30,7 +30,7 @@ lambdaResponse.success(data, options)
 
 ```
 {
-  statusCode: 200,
+  statusCode: '200',
   headers: {
     "Access-Control-Allow-Origin" : "*",
     "Content-Type': "application/json"
